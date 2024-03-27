@@ -1,22 +1,34 @@
 package exercicegeometrieexception.main;
 
-import exercicegeometrieexception.ihm.*;
-import exercicegeometrieexception.ctrl.*;
-import exercicegeometrieexception.wrk.*;
+import java.util.ArrayList;
 
 public class Main {
 
-    public static void main( String[] args ) {
-        Ctrl ctrl = new Ctrl();
-        Ihm ihm = new Ihm();
-        Wrk wrk = new Wrk();
+    public static void main( String[] args ) /* throws Exception */ {
+        WrkExceptionVideo wrk = new WrkExceptionVideo();
+        wrk.printExceptionTable();
+        System.out.println(wrk.creationNumberFormatException(1));
 
-        ctrl.setRefIhm( ihm );
-        ctrl.setRefWorker( wrk );
+        try {
+            wrk.resumer(2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-        ihm.setRefCtrl( ctrl );
+        // wrk.resumer(1);
 
-        ctrl.demarrer();
+
+
+// ArrayList<String> tab = null;
+// int i = tab.size();
+
+        ArrayList<String> tab = null;
+        if (tab != null) {
+            int i = tab.size();
+            tab.add("4");
+        } else {
+            System.out.println("Attention, ArrayList null");
+        }
     }
 
 }
